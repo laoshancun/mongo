@@ -44,6 +44,10 @@ ENV MONGO_MAJOR 3.2
 ENV MONGO_VERSION 3.2.11
 ENV MONGO_PACKAGE mongodb-org
 
+ENV MONGO_USER=mongodb \
+    MONGO_DATA_DIR=/data/mongo/data \
+    MONGO_LOG_DIR=/data/mongo/
+
 RUN echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/$MONGO_MAJOR main" > /etc/apt/sources.list.d/mongodb-org.list
 
 RUN set -x \
@@ -56,8 +60,7 @@ RUN set -x \
 		${MONGO_PACKAGE}-tools=$MONGO_VERSION \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /var/lib/mongodb \
-	&& mv /etc/mongod.conf /etc/mongod.conf.orig \
-	&& cp /usr/bin/mongod / 
+	&& mv /etc/mongod.conf /etc/mongod.conf.orig 
 
 RUN mkdir -p /data/db /data/configdb \
 	&& chown -R mongodb:mongodb /data/db /data/configdb
@@ -67,4 +70,4 @@ COPY docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 27017
-CMD ["mongod","-f","/etc/mongod.conf"]
+CMD ["mongod"]
