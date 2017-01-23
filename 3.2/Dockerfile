@@ -67,4 +67,4 @@ COPY docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 27017
-CMD ["mongod" "-f" "/etc/mongod.conf"]
+CMD ["mongod -f /etc/mongod.conf"]
