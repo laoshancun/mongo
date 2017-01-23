@@ -56,7 +56,7 @@ RUN set -x \
 		${MONGO_PACKAGE}-tools=$MONGO_VERSION \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /var/lib/mongodb \
-	&& mv /etc/mongod.conf /etc/mongod.conf.orig    
+	&& mv /etc/mongod.conf /etc/mongod.conf.orig \
 	&& cp /usr/bin/mongod / 
 
 RUN mkdir -p /data/db /data/configdb \
