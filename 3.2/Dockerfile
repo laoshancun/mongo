@@ -44,9 +44,9 @@ ENV MONGO_MAJOR 3.2
 ENV MONGO_VERSION 3.2.11
 ENV MONGO_PACKAGE mongodb-org
 
-ENV MONGO_USER=mongodb \
+ENV MONGO_USER=mongod \
     MONGO_DATA_DIR=/data/mongo/data \
-    MONGO_LOG_DIR=/data/mongo/
+    MONGO_LOG_DIR=/data/mongo
 
 RUN echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/$MONGO_MAJOR main" > /etc/apt/sources.list.d/mongodb-org.list
 
