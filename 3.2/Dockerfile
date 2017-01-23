@@ -44,7 +44,7 @@ ENV MONGO_MAJOR 3.2
 ENV MONGO_VERSION 3.2.11
 ENV MONGO_PACKAGE mongodb-org
 
-ENV MONGO_USER=mongod \
+ENV MONGO_USER=mongodb \
     MONGO_DATA_DIR=/data/mongo/data \
     MONGO_LOG_DIR=/data/mongo
 
