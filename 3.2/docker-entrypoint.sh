@@ -28,6 +28,7 @@ create_log_dir() {
 map_uidgid
 create_data_dir
 create_log_dir
+chown -R ${MONGO_USER}:${MONGO_USER} /etc/mongod.conf /etc/mongo.d
 
 # allow arguments to be passed to mongod
 if [[ ${1:0:1} = '-' ]]; then
