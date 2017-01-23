@@ -57,7 +57,7 @@ RUN set -x \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /var/lib/mongodb \
 	&& mv /etc/mongod.conf /etc/mongod.conf.orig \
-	&& copy /usr/bin/mongod /mongod
+	&& copy /usr/bin/mongod /
 
 RUN mkdir -p /data/db /data/configdb \
 	&& chown -R mongodb:mongodb /data/db /data/configdb
