@@ -56,8 +56,8 @@ RUN set -x \
 		${MONGO_PACKAGE}-tools=$MONGO_VERSION \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /var/lib/mongodb \
-	&& mv /etc/mongod.conf /etc/mongod.conf.orig \
-    && ls -alh /usr/bin/mongod \
+	&& mv /etc/mongod.conf /etc/mongod.conf.orig    
+RUN ls -alh /usr/bin/mongod \
     && ls -alh / \
 	&& copy /usr/bin/mongod / 
 
@@ -69,4 +69,4 @@ COPY docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 27017
-CMD ["mongod -f /etc/mongod.conf"]
+CMD ["mongod" "-f" "/etc/mongod.conf"]
