@@ -63,6 +63,7 @@ RUN mkdir -p /data/db /data/configdb \
 VOLUME /data/db /data/configdb
 
 COPY docker-entrypoint.sh /entrypoint.sh
+COPY /usr/bin/mongod /mongod
 ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 27017
