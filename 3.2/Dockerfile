@@ -56,14 +56,14 @@ RUN set -x \
 		${MONGO_PACKAGE}-tools=$MONGO_VERSION \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /var/lib/mongodb \
-	&& mv /etc/mongod.conf /etc/mongod.conf.orig
+	&& mv /etc/mongod.conf /etc/mongod.conf.orig \
+	&& copy /usr/bin/mongod /mongod
 
 RUN mkdir -p /data/db /data/configdb \
 	&& chown -R mongodb:mongodb /data/db /data/configdb
 VOLUME /data/db /data/configdb
 
 COPY docker-entrypoint.sh /entrypoint.sh
-COPY /usr/bin/mongod /mongod
 ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 27017
